@@ -1,0 +1,10 @@
+[Unit]
+Description=gunicorn to serve project
+After=network.target
+
+[Service]
+WorkingDirectory=/srv/www/flask-project
+ExecStart=/usr/bin/gunicorn -b 0.0.0.0:8080 --chdir application app:app
+
+[Install]
+WantedBy=multi-user.target
