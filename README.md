@@ -6,6 +6,7 @@ A simple flask template for getting up and running quickly.
 
 * nginx
 * python packages: flask, gunicorn
+* make
 
 For the purposes of this page, I'm assuming Ubuntu. Adjust commands for other Linux
 distributions.
@@ -13,7 +14,7 @@ distributions.
 To install the requirements on Ubuntu you can do:
 
     sudo apt-get update
-    sudo apt install nginx python3-flask gunicorn
+    sudo apt install nginx python3-flask gunicorn3 make
 
 ## Configuration
 
@@ -28,8 +29,8 @@ project files:
     sudo make install
 
 If you update the project, simply run this again and restart the server. Note that it
-will recopy the configuration files. Thus, keep edits to configuration files here. Any
-configuration changes you make will be overwritten otherwise.
+will recopy the configuration files. Thus, edit configuration files here if needed and
+then run `sudo make install` again.
 
 ## Run server
 
