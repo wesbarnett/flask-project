@@ -1,4 +1,4 @@
-# flask setup
+# flask project
 
 A simple flask template for getting up and running quickly.
 
