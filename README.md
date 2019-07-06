@@ -46,6 +46,8 @@ You should see `It works!` or the index page of your website if you modified it.
 
 ## HTTPS
 
+Add an `A` Record for the IP address for your server with your domain registrar.
+
 In `extra/nginx.conf` uncomment the line starting with `server_name` and replace `example.com`
 with your domain name. Rerun the installation.
 
