@@ -17,7 +17,7 @@ To install the requirements on Ubuntu you can do:
     sudo apt install nginx python3-flask gunicorn3 make
 
 You can also use a python virtual environment but will need to modify `gunicorn.service`
-to make the work properly.
+to make this work properly.
 
 ## Configuration
 
@@ -29,10 +29,6 @@ says `It works!`.
 Do the following to install both the configuration files and project files:
 
     sudo make install
-
-**WARNING**: Before running this command, read `Makefile`. This will overwrite any nginx
-configuration file you are already using and is intended to be used on a new Ubuntu
-installation.
 
 If you update the project, simply run this again and restart the server. **Note that it
 will recopy the configuration files.** Thus, edit configuration files here if needed and
@@ -64,6 +60,6 @@ Then copy the now-modified configuration file at `/etc/nginx/nginx.conf` back to
 location of this repository in your home directory and commit it with git! For example:
 
     cd /home/ubuntu/flask-project
-    sudo cp /etc/nginx/nginx.conf ./extra/nginx.conf
+    sudo cp /etc/nginx/sites-available/flask-project.conf ./extra/nginx.conf
     git add extra/nginx.conf
     git commit -m 'add https'
