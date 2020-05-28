@@ -2,6 +2,6 @@
 test.barnett.science
 
 [webservers:vars]
-ansible_ssh_user=ubuntu
-app_name=flask-project
 domain_name=test.barnett.science
+app_name=flask-project
+ansible_ssh_user=ubuntu

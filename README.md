@@ -5,16 +5,19 @@ Github actions and Ansible.
 
 ## Setup
 
-1. Fork the repository and clone your fork to your local machine.
-2. Create an SSH keypair without a passphrase. Go to the settings for your fork and add
-   a secret containing the private key. Name it `AWS_EC2_KEY`.
-3. Add the public key to your AWS account under key pairs. You will need to choose
-   "import key pair".
+1. Generate a new repository based on this one by [clicking
+   here](https://github.com/wesbarnett/flask-project/generate).
+2. Create an SSH keypair without a passphrase. Go the settings for your new
+   repository [here](/settings/secrets/new) and add a secret containing the private key.
+   Name it `AWS_EC2_KEY`.
+3. Add the public key to your AWS account under key pairs by going
+   [here](https://console.aws.amazon.com/ec2/#KeyPairs:). You will need to choose
+   "import key pair" under the white "Actions" drop down.
 4. Create an AWS EC2 instance and associate an Ellastic IP address with it. Ensure port
-   80 is accessible to the world
+   80 is accessible to the world.
 5. Create an A record for your domain or subdomain for the IP address.
-6. Update `ansible/deploy/hosts` for your domain/subdomain.
-7. Make a change locally and push the change to your fork.
+6. Update `ansible/deploy/hosts` in your repository for your domain/subdomain.
+7. Make a change locally and push the change.
 8. Visit your domain/subdomain. You should see a message "It works!".
 
 ## Continuous deployment
