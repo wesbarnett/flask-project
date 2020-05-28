@@ -6,6 +6,6 @@ Barebones flask project.
 
 To run with gunicorn do:
 
-    gunicorn --chdir application -p 8080 app:app
+    gunicorn --chdir application -b :8080 app:app
 
 Then visit `http://localhost:8080`.
