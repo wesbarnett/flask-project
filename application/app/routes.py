@@ -2,4 +2,4 @@ from app import app
 
 @app.route('/')
 def index():
-    return "This is a change!\n"
+    return "It works!\n"
