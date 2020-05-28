@@ -21,7 +21,7 @@
   tasks:
   - name: clone repo
     git:
-      repo: 'https://github.com/{{ github_user }}/{{ app_name }}.git'
+      repo: "https://github.com/{{ lookup('env','GITHUB_REPOSITORY') }}.git"
       dest: /srv/www/{{ app_name }}
       update: yes
 
