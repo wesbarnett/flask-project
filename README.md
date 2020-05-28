@@ -8,8 +8,7 @@ Github actions and Ansible.
 1. Generate a new repository based on this one by [clicking
    here](https://github.com/wesbarnett/flask-project/generate).
 2. Create an SSH keypair without a passphrase. Go the settings for your new
-   repository [here](/settings/secrets/new) and add a secret containing the private key.
-   Name it `AWS_EC2_KEY`.
+   repository and add a secret containing the private key. Name it `AWS_EC2_KEY`.
 3. Add the public key to your AWS account under key pairs by going
    [here](https://console.aws.amazon.com/ec2/#KeyPairs:). You will need to choose
    "import key pair" under the white "Actions" drop down.
