@@ -13,8 +13,10 @@ Github actions and Ansible.
    [here](https://console.aws.amazon.com/ec2/#KeyPairs:). You will need to choose
    "import key pair" under the white "Actions" drop down.
 4. Create an AWS EC2 instance and associate an Ellastic IP address with it. Ensure port
-   80 is accessible to the world.
-5. Create an A record for your domain or subdomain for the IP address.
+   80 is accessible to the world. Additionally use the keypair you just setup for this
+   instance.
+5. Create an A record with your domain registrar for your domain or subdomain for the IP
+   address.
 6. Update `ansible/deploy/hosts` in your repository for your domain/subdomain.
 7. Make a change locally and push the change.
 8. Visit your domain/subdomain. You should see a message "It works!".
@@ -35,3 +37,10 @@ To run with gunicorn do:
     gunicorn --chdir application -b :8080 app:app
 
 Then visit `http://localhost:8080`.
+
+
+** References **
+
+I found [this](https://github.com/Preetam/transverse/tree/master/.github)
+repository helpful in setting up Ansible for use with Github workflows and actions and
+just want to give a shout out to it.
