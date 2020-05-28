@@ -1,4 +1,4 @@
 #!/bin/bash
 mkdir -p ~/.ssh
 echo "$AWS_EC2_KEY" > ~/.ssh/aws.pem
-ansible-playbook --key-file ~/.ssh/aws.pem ansible/deploy.yml
+#ansible-playbook --key-file ~/.ssh/aws.pem ansible/deploy.yml
