@@ -1,0 +1,60 @@
+# Ansible playbook for deploying a Flask app
+
+---
+- hosts: webservers
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: install packages
+    apt: 
+      name: "{{ packages }}"
+      update_cache: yes
+    vars:
+      packages:
+        - nginx
+        - gunicorn3
+        - python3-pip
+
+- hosts: webservers
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: clone repo
+    git:
+      repo: 'https://github.com/{{ github_user }}/{{ app_name }}.git'
+      dest: /srv/www/{{ app_name }}
+      update: yes
+
+- hosts: webservers
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Install needed python packages
+    pip:
+      requirements: requirements.txt
+      chdir: /srv/www/{{ app_name }}
+
+- hosts: webservers
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: template systemd service config
+    template:
+      src: deploy/gunicorn.service
+      dest: /etc/systemd/system/{{ app_name }}.service
+  - name: start systemd app service
+    systemd: name={{ app_name }}.service state=restarted enabled=yes
+  - name: template nginx site config
+    template:
+      src: deploy/nginx.conf
+      dest: /etc/nginx/sites-available/{{ app_name }}.conf
+  - name: remove default nginx site config
+    file: path=/etc/nginx/sites-enabled/default state=absent
+  - name: enable nginx site
+    file:
+      src: /etc/nginx/sites-available/{{ app_name }}.conf
+      dest: /etc/nginx/sites-enabled/{{ app_name }}.conf
+      state: link
+      force: yes
+  - name: restart nginx
+    systemd: name=nginx state=restarted enabled=yes

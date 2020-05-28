@@ -1,0 +1,14 @@
+name: Master deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/ansible
+      env:
+        AWS_EC2_KEY: ${{ secrets.AWS_EC2_KEY }}

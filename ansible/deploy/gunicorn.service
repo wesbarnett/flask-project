@@ -1,0 +1,10 @@
+[Unit]
+Description=gunicorn to serve {{ app_name }}
+After=network.target
+
+[Service]
+WorkingDirectory=/srv/www/{{ app_name }}
+ExecStart=/usr/bin/gunicorn3 -b 0.0.0.0:8080 --chdir application app:app
+
+[Install]
+WantedBy=multi-user.target
