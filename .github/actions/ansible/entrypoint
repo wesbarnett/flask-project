@@ -1,4 +1,5 @@
 #!/bin/bash
 echo "$AWS_EC2_KEY" > ~/.ssh/aws.pem
+echo $HOME
 cd ansible
 ansible-playbook deploy.yml
