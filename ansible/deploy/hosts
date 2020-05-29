@@ -5,3 +5,4 @@ test.barnett.science
 domain_name=test.barnett.science
 app_name=flask-project
 ansible_ssh_user=ubuntu
+ssl=False
