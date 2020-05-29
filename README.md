@@ -38,9 +38,14 @@ To run with gunicorn do:
 
 Then visit `http://localhost:8080`.
 
-
-** References **
+## References
 
 I found [this](https://github.com/Preetam/transverse/tree/master/.github)
 repository helpful in setting up Ansible for use with Github workflows and actions and
+
+## See also
+
+See the [original blog post
+here](https://barnett.science/linux/aws/ansible/github/2020/05/28/flask-actions.html)
+with further details on these instructions.
 just want to give a shout out to it.
