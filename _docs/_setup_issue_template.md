@@ -7,7 +7,7 @@ This issue is to remind you of what steps are needed to complete setting this re
 3. Add the public key to your AWS account under key pairs by going <a href="https://console.aws.amazon.com/ec2/#KeyPairs:" target="_blank">here</a>. You will need to choose "import key pair" under the white "Actions" drop down.
 4. Create an AWS EC2 instance and associate an Ellastic IP address with it. Ensure port 80 is accessible to the world. Additionally use the keypair you just setup for this instance.
 5. Create an A record with your domain registrar for your domain or subdomain for the IP address.
-6. Update `ansible/deploy/hosts` in your repository for your domain/subdomain (replace `test.barnett.science` with your domain). Commit the change push it to master.
+6. Update `ansible/deploy/hosts` in your repository for your domain/subdomain (replace `test.barnett.science` with your domain). Commit the change and push it to master.
 7. Visit your domain/subdomain. You should see a message "It works!".
 
 ## Next steps
