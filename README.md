@@ -5,21 +5,8 @@ Github actions and Ansible.
 
 ## Setup
 
-1. Generate a new repository based on this one by [clicking
-   here](https://github.com/wesbarnett/flask-project/generate).
-2. Create an SSH keypair without a passphrase. Go the settings for your new
-   repository and add a secret containing the private key. Name it `AWS_EC2_KEY`.
-3. Add the public key to your AWS account under key pairs by going
-   [here](https://console.aws.amazon.com/ec2/#KeyPairs:). You will need to choose
-   "import key pair" under the white "Actions" drop down.
-4. Create an AWS EC2 instance and associate an Ellastic IP address with it. Ensure port
-   80 is accessible to the world. Additionally use the keypair you just setup for this
-   instance.
-5. Create an A record with your domain registrar for your domain or subdomain for the IP
-   address.
-6. Update `ansible/deploy/hosts` in your repository for your domain/subdomain.
-7. Make a change locally and push the change.
-8. Visit your domain/subdomain. You should see a message "It works!".
+1. Generate a new repository based on this one by [clicking here](https://github.com/wesbarnett/flask-project/generate).
+2. A new issue will be opened in your repository a few minutes after you generate the repository, outlining the next steps. Essentially you will generate a keypair, store private key in Github and the public on AWS, provision your EC2 instance, update your domain's A record to point to it, and then update one configuration file.
 
 ## Continuous deployment
 
@@ -43,6 +30,10 @@ Then visit `http://localhost:8080`.
 I found [this](https://github.com/Preetam/transverse/tree/master/.github)
 repository helpful in setting up Ansible for use with Github workflows and actions and
 just want to give a shout out to it.
+
+I was also inspired by the work done by [fastpages](https://github.com/fastai/fastpages/) which uses Github workflows and
+actions to automatically update Github pages. I definitely looked at several of their
+files and borrowed some of their ideas!
 
 ## See also
 
