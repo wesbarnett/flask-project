@@ -34,6 +34,7 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
+          var fs = require('fs');
           var contents = fs.readFileSync('_docs/_setup_issue_template.md', 'utf8');
           github.issues.create({
             owner: context.repo.owner,
