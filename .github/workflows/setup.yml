@@ -1,0 +1,43 @@
+name: Setup
+
+on:
+  push:
+
+jobs:
+  setup:
+    if: ( github.event.commits[0].message == 'Initial commit' ) || github.run_number == 1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+        
+    - name: modify files
+      run: |
+        import re, os
+        from pathlib import Path
+
+        nwo = os.getenv('GITHUB_REPOSITORY')
+        username, repo_name = nwo.split('/')
+        issue_msg_path = Path('_docs/_setup_issue_template.md')
+
+        issue = issue_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        issue_msg_path.write_text(issue)
+      shell: python
+
+    - name: Open issue
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var contents = fs.readFileSync('_docs/_setup_issue_template.md', 'utf8');
+          github.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: "Complete repository setup",
+            body: `${contents}`
+          })
