@@ -28,8 +28,9 @@ jobs:
         issue = issue_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
         issue_msg_path.write_text(issue)
 
-        readme_path = Path('_docs/README_TEMPLATE.md')
-        readme = readme_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        readme_path = Path('README.md')
+        readme_template_path = Path('_docs/README_TEMPLATE.md')
+        readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
         readme_path.write_text(readme)
       shell: python
 
