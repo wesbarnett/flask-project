@@ -24,15 +24,27 @@ jobs:
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
 
-        issue_msg_path = Path('_docs/_setup_issue_template.md')
-        issue = issue_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
-        issue_msg_path.write_text(issue)
+        pr_msg_path = Path('_docs/_setup_pr_template.md')
+        pr = pr_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        pr_msg_path.write_text(pr)
 
         readme_path = Path('README.md')
         readme_template_path = Path('_docs/README_TEMPLATE.md')
         readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
         readme_path.write_text(readme)
       shell: python
+
+    - name: commit changes
+      run: |
+        git config --global user.email "${GH_EMAIL}"
+        git config --global user.name "${GH_USERNAME}"
+        git checkout -B automated-setup
+        git add README.md
+        git commit -m'setup repo'
+        git push -f --set-upstream origin automated-setup
+      env: 
+        GH_EMAIL: ${{ github.event.commits[0].author.email }}
+        GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
     - name: Open issue
       uses: actions/github-script@0.6.0
@@ -41,9 +53,11 @@ jobs:
         script: |
           var fs = require('fs');
           var contents = fs.readFileSync('_docs/_setup_issue_template.md', 'utf8');
-          github.issues.create({
+          github.pulls.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
             title: "Complete repository setup",
+            head: "automated-setup",
+            base: "master",
             body: `${contents}`
           })

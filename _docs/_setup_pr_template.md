@@ -1,6 +1,6 @@
 Hello :wave: @{_username_}!
 
-Complete the following steps in order to finish setting up your respository.
+Before merging this PR, complete the following steps in order to finish setting up your respository.
 
 1. Create an ssh key-pair.  Open <a href="https://8gwifi.org/sshfunctions.jsp" target="_blank">this utility</a>. Select: `RSA` and `4096` and leave `Passphrase` blank.  Click the blue button `Generate-SSH-Keys`. Alternatively, create a key pair on your local machine.
 2. Navigate to <a href="https://github.com/{_username_}/{_repo_name_}/settings/secrets" target="_blank">this link</a> and click `Add a new secret`.  Copy and paste the **Private Key** into the `Value` field. This includes the "---BEGIN RSA PRIVATE KEY---" and "--END RSA PRIVATE KEY---" portions. In the `Name` field, name the secret `AWS_EC2_KEY`.  
@@ -11,13 +11,4 @@ Complete the following steps in order to finish setting up your respository.
 7. Update `ansible/deploy/hosts` in your repository for your domain/subdomain (replace `test.barnett.science` with your domain). Commit the change and push it to master.
 8. Visit your domain/subdomain in a web browser. You should see a message "It works!".
 
-## Next steps
-
-- Anytime you push changes to your master branch, Github Pages will run an Ansible playbook to update your Flask server on your EC2 instance (or whatever server you are using). You can monitor the logs of this if you like on the Actions tab of your repo.
-- If you make updates to the directory structure, like moving `__init__.py` to another location, you may break the Github action from working. It expects `__init__.py` to be under application/app. If you want it elsewhere, you’ll need to modify the ansible templates yourself. Other than that, there shouldn’t be any restrictions on what you can change or add to your flask server (templates, static files, etc.).
-- You can add additional Python packages to the top-level `requirements.txt` and they will be installed automatically as part of the ansible provisioning.
-- You can still ssh into your EC2 instance and check the status of both the gunicorn service (`flask-project.service` by default) and nginx service (`nginx.service`) using systemd. Note that if you make any changes to flask-project.service or the nginx configuration you should do that in the ansible template in your repository, not in your instance directly; otherwise, any changes you make to those files will be overwritten by your ansible playbook when you push later.
-
-## See also
-
-<a href="https://barnett.science/linux/aws/ansible/github/2020/05/28/flask-actions.html" target="_blank">This blog post</a> has more information on these steps.
+After merging your PR, you're README.md will be updated with next steps.
