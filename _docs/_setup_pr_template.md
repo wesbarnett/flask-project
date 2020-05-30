@@ -23,3 +23,21 @@ Update <a href="https://github.com/{_username_}/{_repo_name_}/edit/master/ansibl
 Visit your domain/subdomain in a web browser. You should see a message "It works!".
 
 After completing the above steps, merge this PR and your README.md will be updated.
+
+## SSL
+
+This step is optional for those who want to serve using HTTPS. Ensure that your site is
+served over HTTP before proceeding.
+
+To enable SSL for your site, ensure that port 443 is open in your EC2 security group for
+inbound connections. Then SSH into your EC2 instance and follow the instructions to use
+Let's Encrypt's certbot [found
+here](https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx).
+
+After this is complete, simply change `SSL=True` in `ansible/deploy/hosts` and push.
+This sets a boolean variable such that the nginx configuration for your domain is
+changed to serve using HTTPS. Additionally all HTTP traffic will be redirected to HTTPS.
+This is an important step, because if you do not change this variable the nginx
+configuration will be overwritten with one that only serves over HTTP the next time you
+push.
+
