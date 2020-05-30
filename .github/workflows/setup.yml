@@ -23,10 +23,14 @@ jobs:
 
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
-        issue_msg_path = Path('_docs/_setup_issue_template.md')
 
+        issue_msg_path = Path('_docs/_setup_issue_template.md')
         issue = issue_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
         issue_msg_path.write_text(issue)
+
+        readme_path = Path('_docs/README_TEMPLATE.md')
+        readme = readme_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        readme_path.write_text(readme)
       shell: python
 
     - name: Open issue
