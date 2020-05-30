@@ -1,4 +1,4 @@
-name: Setup
+name: setup
 
 on:
   push:
@@ -8,12 +8,12 @@ jobs:
     if: ( github.event.commits[0].message == 'Initial commit' ) || github.run_number == 1
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Python
+    - name: set up Python
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
 
-    - name: Copy Repository Contents
+    - name: copy eepository contents
       uses: actions/checkout@v2
         
     - name: modify files
@@ -46,13 +46,13 @@ jobs:
         GH_EMAIL: ${{ github.event.commits[0].author.email }}
         GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
-    - name: Open issue
+    - name: open PR
       uses: actions/github-script@0.6.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           var fs = require('fs');
-          var contents = fs.readFileSync('_docs/_setup_issue_template.md', 'utf8');
+          var contents = fs.readFileSync('_docs/_setup_pr_template.md', 'utf8');
           github.pulls.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
