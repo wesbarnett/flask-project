@@ -7,8 +7,9 @@ Github actions and Ansible.
 
 ## Setup
 
-1. Generate a new repository based on this one by [clicking here](https://github.com/wesbarnett/flask-project/generate).
-2. A new issue will be opened in your repository a few minutes after you generate the repository, outlining the next steps. Essentially you will generate a keypair, store private key in Github and the public on AWS, provision your EC2 instance, update your domain's A record to point to it, and then update one configuration file.
+Generate a new repository based on this one by [clicking here](https://github.com/wesbarnett/flask-project/generate).
+
+A PR will be opened in your repository a few minutes after you generate the repository, outlining the next steps. Essentially you will generate a keypair, store private key in Github and the public on AWS, provision your EC2 instance, update your domain's A record to point to it, and then update one configuration file.
 
 ## Continuous deployment
 
