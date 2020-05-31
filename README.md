@@ -3,6 +3,8 @@
 Barebones flask project that continuously deploys to an AWS EC2 instance using
 Github actions and Ansible.
 
+![](https://barnett.science/images/github_actions/diagram.png)
+
 ## Setup
 
 1. Generate a new repository based on this one by [clicking here](https://github.com/wesbarnett/flask-project/generate).
