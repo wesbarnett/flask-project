@@ -30,7 +30,7 @@ Then visit `http://localhost:8080`.
 
 ## References
 
-I found [this](https://github.com/Preetam/transverse/tree/main/.github)
+I found [this](https://github.com/Preetam/transverse/tree/master/.github)
 repository helpful in setting up Ansible for use with Github workflows and actions and
 just want to give a shout out to it.
 
