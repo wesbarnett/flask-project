@@ -16,7 +16,12 @@ Before merging this PR, complete the following steps in order to finish setting 
 
 ## Configuration
 
-Update <a href="https://github.com/{_username_}/{_repo_name_}/edit/master/ansible/deploy/hosts">`ansible/deploy/hosts`</a> in your repository for your domain/subdomain (replace `test.barnett.science` with your domain). Commit the change and push it to master. Editing in the browser directly works fine as well. Wait a few minutes for the Github action to complete. You can find its status [here](https://github.com/{_username_}/{_repo_name_}/actions).
+Update <a
+href="https://github.com/{_username_}/{_repo_name_}/edit/main/ansible/deploy/hosts">`ansible/deploy/hosts`</a>
+in your repository for your domain/subdomain (replace `test.barnett.science` with your
+domain). Commit the change and push it to `main`. Editing in the browser directly works
+fine as well. Wait a few minutes for the Github action to complete. You can find its
+status [here](https://github.com/{_username_}/{_repo_name_}/actions).
 
 ## Verification
 

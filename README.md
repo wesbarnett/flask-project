@@ -8,7 +8,7 @@ Github actions and Ansible.
 Here's a demo showing a change being made, that change is committed and pushed to
 Github, and then the deploy action is run deploying it to the EC2 instance using the
 Ansible playubook.
-![](https://github.com/wesbarnett/flask-project/raw/master/demo.gif)
+![](https://github.com/wesbarnett/flask-project/raw/main/demo.gif)
 
 ## Setup
 
@@ -36,7 +36,7 @@ Then visit `http://localhost:8080`.
 
 ## References
 
-I found [this](https://github.com/Preetam/transverse/tree/master/.github)
+I found [this](https://github.com/Preetam/transverse/tree/main/.github)
 repository helpful in setting up Ansible for use with Github workflows and actions and
 just want to give a shout out to it.
 
