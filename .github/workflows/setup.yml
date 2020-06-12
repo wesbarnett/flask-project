@@ -58,6 +58,6 @@ jobs:
             repo: context.repo.repo,
             title: "Complete repository setup",
             head: "automated-setup",
-            base: "master",
+            base: "main",
             body: `${contents}`
           })
