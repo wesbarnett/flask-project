@@ -18,8 +18,7 @@ A PR will be opened in your repository a few minutes after you generate the repo
 
 ## Continuous deployment
 
-Every time a push is made to your [default
-branch](https://help.github.com/en/github/administering-a-repository/setting-the-default-branch),
+Every time a push is made to the default branch `main`,
 the Github Action that updates your EC2 instance will run. In other words, you should
 make development changes in another branch, test them, and when satisfied they are ready
 for production, merge them into your default branch and push to Github.
