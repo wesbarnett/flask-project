@@ -5,11 +5,6 @@ Github actions and Ansible.
 
 ![](https://barnett.science/images/github_actions/diagram.png)
 
-Here's a demo showing a change being made, that change is committed and pushed to
-Github, and then the deploy action is run deploying it to the EC2 instance using the
-Ansible playubook.
-![](https://github.com/wesbarnett/flask-project/raw/main/demo.gif)
-
 ## Setup
 
 Generate a new repository based on this one by [clicking here](https://github.com/wesbarnett/flask-project/generate).
